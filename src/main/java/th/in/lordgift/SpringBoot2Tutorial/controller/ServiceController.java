@@ -2,8 +2,10 @@ package th.in.lordgift.SpringBoot2Tutorial.controller;
 
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import th.in.lordgift.SpringBoot2Tutorial.mode.bean.Pretty;
+import th.in.lordgift.SpringBoot2Tutorial.secure.MyAuthentication;
 
 import java.util.Map;
 
@@ -14,9 +16,9 @@ import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 @RequestMapping("/api")
 public class ServiceController {
 
-    @GetMapping(path = "/test")
-    public String test() {
-        return "success";
+    @GetMapping(path = "/test", produces = APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity test(@AuthenticationPrincipal MyAuthentication authen) {
+        return ResponseEntity.ok(authen.getPrincipal());
     }
 
     /**

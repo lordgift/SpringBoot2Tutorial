@@ -1,7 +1,10 @@
 package th.in.lordgift.SpringBoot2Tutorial.secure.filter;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
+import th.in.lordgift.SpringBoot2Tutorial.secure.MyAuthentication;
+import th.in.lordgift.SpringBoot2Tutorial.secure.MyUserPrincipal;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -22,6 +25,16 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
         }
 
         //TODO check token is valid
+
+        //TODO decrypt token into bean
+        MyUserPrincipal decryptedData = new MyUserPrincipal();
+        decryptedData.setUserId("00001");
+        decryptedData.setUsername("LordGift");
+        decryptedData.setRole("Administrator");
+
+        SecurityContextHolder
+                .getContext()
+                .setAuthentication(new MyAuthentication(decryptedData));
 
         doFilter(httpServletRequest,httpServletResponse, filterChain);
     }
