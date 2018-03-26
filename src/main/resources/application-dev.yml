@@ -1,0 +1,7 @@
+server:
+  servlet:
+    context-path: /spring
+  port: 8080
+#logging:
+#  level: debug
+

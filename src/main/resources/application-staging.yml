@@ -1,0 +1,6 @@
+server:
+  servlet:
+    context-path: /spring
+  port: 8080
+
+
