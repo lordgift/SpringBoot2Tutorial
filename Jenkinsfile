@@ -18,8 +18,13 @@ pipeline {
           }
         }
         stage('SonarQube analysis') {
-            withSonarQubeEnv('My SonarQube Server') {
+            steps {
               sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+            }
+        }
+        stage('Postman API Testing') {
+            steps {
+                sh 'newman run Testing.postman_collection.json'
             }
         }
       }

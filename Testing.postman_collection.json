@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "a4451606-9ccf-48b2-b5a4-c75a0d3dc4a3",
+		"name": "Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b57c940-8aec-4e4a-9a04-f23e17b4a411",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response Body is JSON\", function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/spring/api/test",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"spring",
+						"api",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testQueryParams",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "38143953-f349-4b10-86d1-e7eb73d0960e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response Body is JSON\", function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/spring/api/testQueryParams?param1=abc&param2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"spring",
+						"api",
+						"testQueryParams"
+					],
+					"query": [
+						{
+							"key": "param1",
+							"value": "abc"
+						},
+						{
+							"key": "param2",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testQueryParam",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "908d9302-8191-459d-8a33-84bf5fa2c01f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/spring/api/testQueryParam?singleParam=aaaaa",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"spring",
+						"api",
+						"testQueryParam"
+					],
+					"query": [
+						{
+							"key": "singleParam",
+							"value": "aaaaa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testRequestBody",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9b0a0ffb-34ba-4362-b2e9-97029dee7d31",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response Body is JSON\", function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"codename\" : \"PremChai\",\n\t\"price\" : 100000,\n\t\"star\" : \"danger\",\n\t\"birthdate\": \"2016-03-01\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/spring/api/testRequestBody",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"spring",
+						"api",
+						"testRequestBody"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testPathParam",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3d9d3dbb-ceaa-4721-a789-3d85321db746",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response Body is JSON\", function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/spring/api/testPathParam/param1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"spring",
+						"api",
+						"testPathParam",
+						"param1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
