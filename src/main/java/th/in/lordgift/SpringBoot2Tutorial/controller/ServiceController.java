@@ -35,7 +35,7 @@ public class ServiceController {
      * GET localhost:8080/spring/api/testQueryParams?param1=abc&param2=def
      */
     @GetMapping(path = "/testQueryParams", produces = APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity testQueryParams(@RequestParam Map<String,String> requestParams) {
+    public ResponseEntity testQueryParams(@RequestParam Map<String, String> requestParams) {
         String param1 = requestParams.get("param1");
         String param2 = requestParams.get("param2");
 
@@ -46,7 +46,6 @@ public class ServiceController {
     /**
      * Sample call service : <BR />
      * POST localhost:8080/spring/api/testRequestBody
-     *
      */
     @PostMapping(path = "/testRequestBody",
             produces = APPLICATION_JSON_UTF8_VALUE,
@@ -64,9 +63,6 @@ public class ServiceController {
         Pretty pretty = new Pretty("Aaaa Bbbb", "**", 5L);
         return ResponseEntity.ok(pretty);
     }
-
-
-
 
 
 }
