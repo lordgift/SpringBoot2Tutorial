@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Code coverage') {
       steps {
-        sh 'mvn cobertura:cobertura'
+        sh 'mvn cobertura:cobertura -Dcobertura.report.format=xml'
         cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: '**/target/site/cobertura/coverage.xml', failUnhealthy: false, failUnstable: false
       }
     }
