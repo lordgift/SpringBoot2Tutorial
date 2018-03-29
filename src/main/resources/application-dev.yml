@@ -2,6 +2,12 @@ server:
   servlet:
     context-path: /spring
   port: 8000
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@10.254.40.94:1521:nhadb
+    username: nhadev
+    password: nhadev
+    driver-class-name: oracle.jdbc.driver.OracleDriver
 
 
-
+#ojdbc7.jar

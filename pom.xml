@@ -52,6 +52,13 @@
 			<version>2.4.0</version>
 		</dependency>
 
+		<!-- local dependencies -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -68,5 +75,11 @@
 		</plugins>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>local-libs</id>
+			<url>file://${project.basedir}/local-libs</url>
+		</repository>
+	</repositories>
 
 </project>
