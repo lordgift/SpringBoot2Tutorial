@@ -42,7 +42,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         Collection<String> excludeUrlPatterns = new ArrayList<>();
-        excludeUrlPatterns.add("/auth/*");
+        excludeUrlPatterns.add("/**");
 
         AntPathMatcher pathMatcher = new AntPathMatcher();
         return excludeUrlPatterns.stream()

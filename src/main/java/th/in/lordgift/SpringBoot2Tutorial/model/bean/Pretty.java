@@ -1,4 +1,4 @@
-package th.in.lordgift.SpringBoot2Tutorial.mode.bean;
+package th.in.lordgift.SpringBoot2Tutorial.model.bean;
 
 import java.time.LocalDate;
 
