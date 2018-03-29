@@ -35,6 +35,7 @@ public class ServiceController {
     @GetMapping(path = "/testQueryParam", produces = TEXT_PLAIN_VALUE)
     public ResponseEntity testQueryParam(@RequestParam(value = "singleParam") String singleParam) {
         return ResponseEntity.ok(singleParam);
+
     }
 
     /**

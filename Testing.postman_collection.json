@@ -264,6 +264,92 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "getUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "29f39516-1347-4ceb-8b3d-3f4231153546",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response Body is JSON\", function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/spring/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"spring",
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e193925-4f14-43db-b372-a05b63f426ce",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,400]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 2,\n        \"name\": \"artxzilla\",\n        \"position\": \"mini boss\",\n        \"lastUpdated\": \"2018-03-29T04:10:16.61\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8000/spring/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"spring",
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
