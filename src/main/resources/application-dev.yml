@@ -4,9 +4,9 @@ server:
   port: 8000
 spring:
   datasource:
-    url: jdbc:oracle:thin:@10.254.40.94:1521:nhadb
-    username: nhadev
-    password: nhadev
+    url: jdbc:oracle:thin:@192.168.1.1:1521:oracledb
+    username: odb
+    password: odb
     driver-class-name: oracle.jdbc.driver.OracleDriver
   jpa:
     show-sql: true
