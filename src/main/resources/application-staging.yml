@@ -3,4 +3,10 @@ server:
     context-path: /spring
   port: 8080
 
+logging:
+  level:
+    th.in.lordgift.SpringBoot2Tutorial.*: warn
+spring:
+  datasource:
+    jndi-name: jdbc/springDS
 

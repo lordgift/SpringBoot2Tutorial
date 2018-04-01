@@ -8,6 +8,11 @@ spring:
     username: nhadev
     password: nhadev
     driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    show-sql: true
+logging:
+  level:
+    th.in.lordgift.SpringBoot2Tutorial.*: debug
 
 
 #ojdbc7.jar

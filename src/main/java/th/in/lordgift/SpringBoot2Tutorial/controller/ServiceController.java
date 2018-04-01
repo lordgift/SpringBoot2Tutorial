@@ -1,7 +1,10 @@
 package th.in.lordgift.SpringBoot2Tutorial.controller;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +13,6 @@ import th.in.lordgift.SpringBoot2Tutorial.model.entity.MyUser;
 import th.in.lordgift.SpringBoot2Tutorial.secure.MyAuthentication;
 import th.in.lordgift.SpringBoot2Tutorial.service.ServiceManager;
 
-import java.io.FileNotFoundException;
 import java.util.Map;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
@@ -19,6 +21,8 @@ import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 @RestController
 @RequestMapping("/api")
 public class ServiceController {
+
+    private static final Logger log = LogManager.getLogger(ServiceController.class);
 
     @Autowired
     ServiceManager serviceManager;
@@ -81,11 +85,18 @@ public class ServiceController {
     @PostMapping(path = "/user")
     public ResponseEntity addUser(@RequestBody MyUser user) {
         try {
+            log.debug("hello debug");
             return ResponseEntity.ok(serviceManager.addMyUser(user));
         } catch (Exception e) {
 //            e.printStackTrace();
+            log.error("error add user", e);
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    @GetMapping(path = "/usersWithPage")
+    public ResponseEntity getUsers(Pageable pageable) {
+        return ResponseEntity.ok(serviceManager.queryMyUser(pageable));
     }
 
 }

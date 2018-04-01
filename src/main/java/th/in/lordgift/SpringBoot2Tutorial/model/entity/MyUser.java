@@ -12,6 +12,14 @@ public class MyUser {
     private String position;
     private LocalDateTime lastUpdated;
 
+    public MyUser() {
+
+    }
+
+    public MyUser(String name) {
+        this.name = name;
+    }
+
     @Id
     @Column(name = "ID")
     public Long getId() {
