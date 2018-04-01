@@ -4,10 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:oracle:thin:@10.254.40.94:1521:nhadb</property>
+    <property name="connection.url">jdbc:oracle:thin:@192.168.1.1:1521:oracledb</property>
     <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-    <property name="connection.username">nhadev</property>
-    <property name="connection.password">nhadev</property>
+    <property name="connection.username">odb</property>
+    <property name="connection.password">odb</property>
 
     <property name="hibernate.dialect">org.hibernate.dialect.Oracle9iDialect</property>
     <!-- DB schema will be updated if needed -->
