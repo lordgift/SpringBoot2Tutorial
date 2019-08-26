@@ -84,6 +84,8 @@
 		</plugins>
 	</build>
 
+
+	<!-- ADD *.jar to maven local-libs https://www.lordgift.in.th/2018/04/java-jar-file-library-maven-project.html -->
 	<repositories>
 		<repository>
 			<id>local-libs</id>
